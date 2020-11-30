@@ -38,3 +38,27 @@ Lets try to ssh to the pi using the .local domain:
 `pi@raspberrypi.local's password:`
 
 Nice it works!
+
+### Install docker and docker compose
+
+1. Install docker:
+   `curl -sSL https://get.docker.com | sh`
+
+2. Add permissions to run docker from the pi user:
+   `sudo usermod -aG docker pi`
+
+3. Reboot
+   `sudo reboot`
+
+4. Install python dependencies:
+
+```
+sudo apt-get install -y libffi-dev libssl-dev
+
+sudo apt-get install -y python3 python3-pip
+
+sudo apt-get remove python-configparser
+```
+
+5. Install docker compose:
+   `sudo pip3 -v install docker-compose`
