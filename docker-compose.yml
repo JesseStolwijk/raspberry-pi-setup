@@ -4,16 +4,12 @@ services:
   pihole:
     container_name: pihole
     image: pihole/pihole:latest
-    ports:
-      - "53:53/tcp"
-      - "53:53/udp"
-      - "67:67/udp"
-      - "80:80/tcp"
-      - "443:443/tcp"
     environment:
       TZ: "Europe/Amsterdam"
       WEBPASSWORD: "set a secure password here or it will be random"
       DNSSEC: "true"
+
+    network_mode: host
 
     # Volumes store your data between container upgrades
     volumes:
